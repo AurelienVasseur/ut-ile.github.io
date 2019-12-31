@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">
+        <mat-icon class="feature-icon">home</mat-icon>
+        <span>Accueil</span>
+      </a>
+      <a mat-list-item routerLink="/login" *ngIf="!user">
+        <mat-icon class="feature-icon">person</mat-icon>
+        <span>Se connecter</span>
+      </a>
+      <a mat-list-item routerLink="/register" *ngIf="!user">
+        <mat-icon class="feature-icon">person_add</mat-icon>
+        <span>S'inscrire</span>
+      </a>
+      <mat-progress-spinner *ngIf="!features" mode="indeterminate" diameter="40" class="spinner"></mat-progress-spinner>
+      <a mat-list-item *ngFor="let feature of features" routerLink="/{{ feature.slug }}">
+        <mat-icon class="feature-icon">{{ feature.icon }}</mat-icon>
+        <span>{{ feature.name }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <button mat-button routerLink="/">
+        <img id="logo" src="https://firebasestorage.googleapis.com/v0/b/ut-ile.appspot.com/o/home%2Futile-logo.svg?alt=media&token=7814d517-6853-459a-9123-aef12b311d12" width="20" height="20" />
+        <span>UTile</span>
+      </button>
+      <span class="example-spacer"></span>
+      <div class="" *ngIf="!fireUser">
+        <a mat-stroked-button routerLink="/login">Se connecter</a>
+        <a mat-stroked-button routerLink="/register">S'inscrire</a>
+      </div>
+      <div class="profile-dropdown" *ngIf="fireUser && user">
+        <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="Example icon-button with a menu">
+          <img class="avatar" src="{{ user.avatar }}" alt="{{ user.sur_name }}'s avatar">
+          <span class="user-surname">{{ user.sur_name }}</span>
+        </button>
+        <mat-menu #profileMenu="matMenu">
+          <a mat-menu-item routerLink="/users/{{ user.page_id }}/profile">
+            <mat-icon>person</mat-icon>
+            <span>Profil</span>
+          </a>
+          <a mat-menu-item routerLink="/users/{{ user.page_id }}/settings">
+            <mat-icon>settings</mat-icon>
+            <span>Paramètres</span>
+          </a>
+          <button mat-menu-item (click)="signOut()" class="disconnect">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Se déconnecter</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

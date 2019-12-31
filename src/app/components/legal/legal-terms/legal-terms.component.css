@@ -1,0 +1,10 @@
+.legal-terms {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+mat-card-content {
+    text-align: justify;
+}

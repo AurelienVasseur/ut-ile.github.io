@@ -1,0 +1,8 @@
+<section class="surveys">
+    <div class="surveys-header text-center">
+        <h1>Surveys</h1>
+    </div>
+    <div class="surveys-categories-wrapper">
+        <app-category-card *ngFor="let surveyCard of surveyCards" [category]="surveyCard" [featureSlug]="'surveys'" [buttonName]="'Participer'" [buttonIcon]="'trending_up'"></app-category-card>
+    </div>
+</section>

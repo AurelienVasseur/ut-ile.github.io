@@ -1,0 +1,63 @@
+.home-thumbnail {
+    overflow: hidden;
+}
+
+@media(min-width: 600px) {
+    .home-thumbnail {
+        height: calc(100% - 64px);
+    }
+}
+
+@media(max-width: 600px) {
+    .home-thumbnail {
+        height: calc(100% - 56px);
+    }
+}
+
+video {
+    min-width: 100%; 
+    min-height: 100%; 
+}
+
+.content-thumbnail {
+    position: absolute;
+    top: 25%;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+@media(min-width: 600px) {
+    .content-thumbnail {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media(min-width: 820px) {
+    .content-thumbnail {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+@media(min-width: 1100px) {
+    .content-thumbnail {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
+.content-thumbnail .btn {
+    width: unset;
+}
+
+.thumbnail-title {
+    word-wrap: break-word;
+}
+
+.btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.1)!important;
+}

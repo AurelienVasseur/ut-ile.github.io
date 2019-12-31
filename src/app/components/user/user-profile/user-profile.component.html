@@ -1,0 +1,29 @@
+<div class="spinner" *ngIf="!user">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div class="private-profile-card" *ngIf="user && fireUser && user.id == fireUser.uid">
+    <mat-card>
+        <mat-card-content>
+            <mat-tab-group mat-align-tabs="center" mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="updateUrl($event)">
+                <mat-tab label="Profil">
+                    <ng-template matTabContent>
+                        <div class="tab-content">
+                            <app-form-user-profile [user]="user"></app-form-user-profile>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="Paramètres">
+                    <ng-template matTabContent>
+                        <div class="tab-content">
+                            <app-form-user-settings *ngIf="user" [user]="user"></app-form-user-settings>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="public-profile" *ngIf="(!fireUser && user ) || (user && fireUser && user.id != fireUser.uid)">
+    <app-user-card [user]="user"></app-user-card>
+</div>

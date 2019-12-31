@@ -1,0 +1,21 @@
+.category-card {
+    max-width: 400px;
+    margin: 25px;
+    text-align: center;
+    transition: all .25s ease-in-out;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.badges-thumbnail {
+    position: absolute;
+    bottom: 0px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.badges-thumbnail span {
+    margin-right: 5px;
+}

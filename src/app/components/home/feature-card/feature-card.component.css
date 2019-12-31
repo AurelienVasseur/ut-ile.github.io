@@ -1,0 +1,14 @@
+.service-container {
+    max-width: 400px;
+    margin: 10px;
+}
+
+.service-container .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.service-icon mat-icon {
+    font-size: 48px;
+    color: #3f51b5;
+}

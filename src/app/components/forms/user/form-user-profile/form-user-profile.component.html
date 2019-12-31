@@ -1,0 +1,66 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="profileFormGroup">
+    <div class="avatar-container">
+        <button (click)="compressFile()" [className]="editProfile ? 'avatar-compress avatar-wrapper' : 'avatar-wrapper'"
+            [disabled]="!editProfile">
+
+            <img *ngIf="!newAvatar" src="{{ user.avatar }}" class="avatar" />
+            <img *ngIf="newAvatar" src="{{ newAvatar }}" class="avatar" />
+            <p class="hover-text">Changer d'avatar</p>
+        </button>
+    </div>
+
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Pseudonyme</mat-label>
+        <input #surname type="text" placeholder="Surname" aria-label="Surname" matInput id="sur_name" formControlName="sur_name"
+            name="sur_name" required maxlength="64">
+        <mat-error *ngIf="profileFormGroup.get('sur_name').invalid">{{ getSurNameErrorMessage() }}</mat-error>
+        <mat-hint align="end">{{ surname.value?.length || 0 }}/64</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" placeholder="Email" aria-label="Email" matInput id="email" formControlName="email"
+            name="email" required>
+        <mat-error *ngIf="profileFormGroup.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" hintLabel="Facultatif">
+        <mat-label>Prénom</mat-label>
+        <input #firstName type="text" placeholder="Prénom" aria-label="Prénom" matInput id="first_name"
+            formControlName="first_name" name="first_name" maxlength="64">
+        <mat-error *ngIf="profileFormGroup.get('first_name').invalid">{{ getFirstNameErrorMessage() }}</mat-error>
+        <mat-hint align="end">{{ firstName.value?.length || 0 }}/64</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline" hintLabel="Facultatif">
+        <mat-label>Nom</mat-label>
+        <input #name type="text" placeholder="Nom" aria-label="Nom" matInput id="last_name" formControlName="last_name"
+            name="last_name" maxlength="64">
+        <mat-error *ngIf="profileFormGroup.get('last_name').invalid">{{ getLastNameErrorMessage() }}</mat-error>
+        <mat-hint align="end">{{ name.value?.length || 0 }}/64</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline" hintLabel="Facultatif">
+        <mat-label>Formation</mat-label>
+        <mat-select placeholder="Formation" formControlName="formation">
+            <mat-option *ngFor="let formation of formations" [value]="formation">{{ formation }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="profileFormGroup.get('formation').invalid">{{ getFormationErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="editProfile" appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input #password matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Mot de passe" aria-label="Mot de passe"
+            id="password" formControlName="password" name="password" required maxlength="128">
+        <a mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </a>
+        <mat-error *ngIf="profileFormGroup.get('password').invalid">{{ getPasswordErrorMessage() }}</mat-error>
+        <mat-hint align="end">{{ password.value?.length || 0 }}/128</mat-hint>
+    </mat-form-field>
+    <div class="action-buttons">
+        <a mat-button (click)="toggleEditProfile()" class="btn btn-primary btn-md btn-modify">
+            <span *ngIf="!editProfile">Modifier</span>
+            <span *ngIf="editProfile">Ne plus modifier</span>
+        </a>
+        <button mat-button type="submit" class="btn btn-success btn-md m-0" *ngIf="editProfile"
+            [disabled]="!profileFormGroup.valid">Valider</button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="spinner" *ngIf="!subcategory">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<section class="documentation-questions" *ngIf="subcategory">
+    <div class="documentation-subcategory-header text-center">
+        <h1>{{ subcategory.name }}</h1>
+    </div>
+    <div class="spinner" *ngIf="!questions">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <div class="documentation-questions-wrapper">
+        <app-doc-question-card *ngFor="let question of questions" [question]="question"></app-doc-question-card>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<app-wip [featureStatus]="featureStatus" [featureMessage]="featureMessage" [previousRoute]="previousRoute"></app-wip>
+<section class="quiz" *ngIf="false">
+    <div class="quiz-header text-center">
+        <h1>Quiz</h1>
+    </div>
+    <div class="quiz-categories-wrapper">
+        <app-category-card *ngFor="let surveyCard of quizCards" [category]="quizCards" [featureSlug]="'quiz'" [buttonName]="'Lancer'" [buttonIcon]="'timelapse'"></app-category-card>
+    </div>
+</section>

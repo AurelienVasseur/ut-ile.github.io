@@ -1,0 +1,40 @@
+<div class="home-thumbnail">
+    <div class="background-thumbnail">
+        <video class="video-intro" playsinline autoplay muted loop oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <source src="https://firebasestorage.googleapis.com/v0/b/ut-ile.appspot.com/o/home%2Fhome_background.mp4?alt=media&token=9f2b098a-a51c-48fb-8d04-164d8f96c13e" type="video/mp4">
+        </video>
+    </div>
+    <div class="content-thumbnail">
+        <h1 class="display-4 font-weight-bold">UTile</h1>
+        <hr class="hr-light">
+        <p>
+            <strong>La plateforme rassemblant les 3UTs.</strong>
+        </p>
+        <p class="mb-4">
+            <strong>Donnons-nous les moyens de construire.</strong>
+        </p>
+        <a (click)="scroll(features_thumbnail_title)" class="btn btn-outline-white view">
+            <span>Découvrir</span>
+            <mat-icon>play_arrow</mat-icon>
+        </a>
+        <a routerLink="/docs" class="btn btn-outline-white">
+            <span>Documentation </span>
+            <mat-icon>wb_cloudy</mat-icon>
+        </a>
+    </div>
+</div>
+<hr class="mt-0">
+<div class="features-thumbnail">
+    <h1 #features_thumbnail_title>Services</h1>
+    <div class="app-feature-wrapper">
+        <mat-progress-spinner *ngIf="!features" mode="indeterminate" class="spinner"></mat-progress-spinner>
+        <app-feature-card *ngFor="let feature of features" [feature]="feature"></app-feature-card>
+    </div>
+</div>
+<hr class="mt-0">
+<div class="docs-thumbnail">
+    <h1 #docs_thumbnail_title>Documentation</h1>
+    <div class="app-category-wrapper">
+        <app-category-card *ngFor="let category of categories" [category]="category" [featureSlug]="'docs'" [buttonName]="'En savoir plus'" [buttonIcon]="'play_arrow'"></app-category-card>
+    </div>
+</div>

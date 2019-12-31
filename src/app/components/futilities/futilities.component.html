@@ -1,0 +1,8 @@
+<section class="futilities">
+    <div class="futilities-header text-center">
+        <h1>F'UTilities</h1>
+    </div>
+    <div class="futilities-categories-wrapper">
+        <app-category-card *ngFor="let category of categories" [category]="category" [featureSlug]="'futilities'" [buttonName]="'En savoir plus'" [buttonIcon]="'play_arrow'"></app-category-card>
+    </div>
+</section>

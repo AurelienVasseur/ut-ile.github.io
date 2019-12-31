@@ -1,0 +1,27 @@
+<!-- {{ diagnostic }} -->
+<div class="container" [hidden]="submitted">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Suggestion d'amélioration</h2>
+        <p class="text-center w-responsive mx-auto mb-5">Une réflexion ou une idée pour améliorer ce service ? N'hésitez pas à nous en faire part, nous prenons tout en compte !</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="suggestFormGroup">
+        <mat-form-field>
+            <mat-select placeholder="Catégorie" formControlName="category" required>
+                <mat-option *ngFor="let category of suggestionsCategories" [value]="category">{{ category }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="suggestFormGroup.get('category').invalid">{{ getCategoryErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea #message placeholder="Message" aria-label="Message" matInput id="message" formControlName="message" name="message" required maxlength="500"></textarea>
+            <mat-error *ngIf="suggestFormGroup.get('message').invalid">{{ getMessageErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ message.value?.length || 0 }}/500</mat-hint>
+        </mat-form-field>
+        <re-captcha (resolved)="resolved($event)" required name="captcha" formControlName="captcha" siteKey="6LeSAMMUAAAAAGm8Lw1Lpq199cAIwgq0ZFU8WNpK"></re-captcha>
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!suggestFormGroup.valid">Valider</button>
+    </form>
+</div>
+<div class="container text-center" [hidden]="!submitted">
+    <h2>Merci pour votre suggestion !</h2>
+    <mat-icon class="icon-submit-success">done_all</mat-icon>
+    <button *ngIf="false" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

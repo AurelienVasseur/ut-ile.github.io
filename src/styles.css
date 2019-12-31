@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Form verification */
+mat-form-field {
+    width: 100%;
+}
+
+/* valid field */
+.mat-form-field.ng-valid .mat-form-field-underline {
+    background-color: #42A948;
+}
+.mat-form-field.ng-valid input {
+    color: #42A948;
+}
+.mat-form-field.ng-valid input:focus {
+    color: inherit;
+}
+.mat-form-field.ng-valid .mat-form-field-label {
+    color: #42A948;
+}
+/* invalid field (already handled by mat-error) */
+/*
+.mat-form-field.ng-dirty.ng-invalid .mat-form-field-underline {
+    background-color: red;
+}
+.mat-form-field.ng-dirty.ng-invalid .mat-form-field-label {
+    color: red;
+}
+*/
+mat-icon {
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+.btn {
+    width: 100%;
+}

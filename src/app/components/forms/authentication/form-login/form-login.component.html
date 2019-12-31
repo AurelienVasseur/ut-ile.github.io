@@ -1,0 +1,36 @@
+<div class="container" [hidden]="submitted">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Se connecter</h2>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginFormGroup">
+        <mat-form-field>
+            <input type="email" placeholder="Email" aria-label="Email" matInput id="email" formControlName="email" name="email" required>
+            <mat-error *ngIf="loginFormGroup.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Mot de passe" aria-label="Mot de passe" id="password" formControlName="password" name="password" required>
+            <a mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
+            <mat-error *ngIf="loginFormGroup.get('password').invalid">{{ getPasswordErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <div class="forgot-password-request">
+            <a matButton (click)="forgotPassword()">Mot de passe oublié ?</a>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!loginFormGroup.valid">Valider</button>
+    </form>
+</div>
+<div class="container" [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Email :</div>
+        <div class="col-xs-9"> {{ model.email }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Mot de passe :</div>
+        <div class="col-xs-9"> {{ model.password }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

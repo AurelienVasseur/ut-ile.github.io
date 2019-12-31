@@ -1,0 +1,29 @@
+<div class="survey-card text-center">
+    <mat-card>
+        <mat-card-content>
+            <div class="spinner" *ngIf="!survey">
+                    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+            </div>
+            <div class="survey-container" *ngIf="survey" [hidden]="submitted">
+                <div class="survey-header">
+                    <h1>{{ survey.name }}</h1>
+                    <h3>{{ created_on | date }} - {{ expires_on | date }}</h3>
+                    <h5>réalisé par {{ survey.author }}</h5>
+                    <div class="badges-thumbnail">
+                        <span class="badge badge-pill badge-info" *ngFor="let badge of survey.badges">{{ $any(badge).name }}</span>
+                    </div>
+                    <p>{{ survey.description }}</p>
+                </div>
+                <div class="survey-form" *ngIf="surveyFormFound">
+                        <survey [json]="survey.survey_form" (submitSurvey)="fetchData($event)"></survey>
+                </div>
+            </div>
+            <div class="container text-center" [hidden]="!submitted">
+                <h2>Merci pour votre participation !</h2>
+                <p>Lorsque 'Quiz' sera entièrement développée, vous aurez la possibilité d'accéder aux statistiques, si l'auteur du sondage le permet.</p>
+                <mat-icon class="icon-submit-success">done_all</mat-icon>
+                <button *ngIf="false" class="btn btn-primary" (click)="submitted=false">Edit</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

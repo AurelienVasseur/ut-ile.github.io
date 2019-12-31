@@ -1,0 +1,42 @@
+<!-- {{ diagnostic }} -->
+<div class="container" *ngIf="!submitted && !spin">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Nous Contacter</h2>
+        <p class="text-center w-responsive mx-auto mb-5">Une question, une plainte, un rapport de bug ou tout autre chose ? N'hésitez pas à nous contacter. Nous vous répondrons dès que possible.</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+        <mat-form-field>
+            <input #firstname type="text" placeholder="Prénom" aria-label="Prénom" matInput id="firstName" formControlName="firstName" name="firstName" required maxlength="64">
+            <mat-error *ngIf="contactForm.get('firstName').invalid">{{ getFirstNameErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ firstname.value?.length || 0 }}/64</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="email" placeholder="Email" aria-label="Email" matInput id="email" formControlName="email" name="email" required>
+            <mat-error *ngIf="contactForm.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea #message placeholder="Message" aria-label="Message" matInput id="message" formControlName="message" name="message" required maxlength="1000"></textarea>
+            <mat-error *ngIf="contactForm.get('message').invalid">{{ getMessageErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ message.value?.length || 0 }}/1000</mat-hint>
+        </mat-form-field>
+
+        
+        <re-captcha (resolved)="resolved($event)" required formControlName="captcha" name="captcha" siteKey="6LeSAMMUAAAAAGm8Lw1Lpq199cAIwgq0ZFU8WNpK"></re-captcha>
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!contactForm.valid">Valider</button>
+    </form>
+</div>
+<div class="sending-request" *ngIf="spin && !submitted">
+    <div class="status-sending text-center">
+        <h3>Veuillez patienter</h3>
+        <p>Votre demande est en cours d'envoi</p>
+    </div>
+    <div class="spinner">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+</div>
+<div class="container text-center" *ngIf="submitted">
+    <h2>Merci pour votre demande !</h2>
+    <p>Nous vous répondrons dès que possible.</p>
+    <mat-icon class="icon-submit-success">done_all</mat-icon>
+    <button *ngIf="false" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

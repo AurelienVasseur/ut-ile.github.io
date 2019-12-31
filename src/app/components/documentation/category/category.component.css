@@ -1,0 +1,12 @@
+.documentation-subcategories-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.spinner {
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+    display: flex;
+    justify-content: center;
+}

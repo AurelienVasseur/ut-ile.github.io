@@ -1,0 +1,36 @@
+<mat-tab-group mat-align-tabs="center" mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="updateUrl($event)">
+    <mat-tab label="Sécurité">
+        <div class="tab-content">
+            <div class="verify-email" *ngIf="!user.is_validated">
+                <h3>Vérifier mon adresse mail</h3>
+                <p>Vous ne pourrez pas accéder à l'ensemble des contenus d'UTile tant que votre adresse mail n'est pas vérifiée.</p>
+                <button mat-button class="btn btn-warning btn-md" (click)="sendEmailVerification()">Vérifier</button>
+            </div>
+            <hr/>
+            <div class="change-password">
+                <h3>Changer de mot de passe</h3>
+                <app-form-update-password></app-form-update-password>
+            </div>
+            <hr/>
+            <div class="disable-account">
+                <h3>Désactiver mon compte</h3>
+                <p>Cette option est encore en cours de développement.</p>
+                <button mat-button class="btn btn-danger btn-md" (click)="openDisableDialog()" [disabled]="true">Désactiver</button>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Confidentialité">
+        <div class="tab-content">
+            <h3>Historique d'activité</h3>
+            <p>Cette option est encore en cours de développement.</p>
+            <hr/>
+            <h3>Télécharger les données</h3>
+            <p>Cette option est encore en cours de développement.</p>
+            <button mat-button class="btn btn-primary btn-md" [disabled]="true">À venir...</button>
+            <hr/>
+            <h3>Anonymiser les données</h3>
+            <p>Cette option est encore en cours de développement.</p>
+            <button mat-button class="btn btn-primary btn-md" [disabled]="true">À venir...</button>
+        </div>
+    </mat-tab>
+</mat-tab-group>

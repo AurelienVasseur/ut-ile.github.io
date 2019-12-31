@@ -1,0 +1,70 @@
+<div class="contribute-card">
+    <mat-card>
+        <mat-card-content>
+            <mat-tab-group mat-align-tabs="center" mat-stretch-tabs [selectedIndex]="selected.value"
+                (selectedIndexChange)="updateUrl($event)">
+                <!-- TODO : ngFor on serviceFeatures and use angular component loader -->
+                <mat-tab label="Contrib'UT">
+                    <ng-template matTabContent class="tab-content">
+                        <div class="contribute-presentation">
+                            <h2 class="text-center">Bienvenue sur Contrib'UT</h2>
+                            <hr />
+                            <h3 class="ml-2">Améliorer le contenu du site</h3>
+                            <p>Vous avez la possibilité, via les onglets ci-dessus, de modifier ou d'ajouter du contenu
+                                pour les différents services proposés.</p>
+                            <p>La modération automatique des contenus n'est pas encore disponible, ainsi nous traiterons
+                                manuellement vos contributions.</p>
+                            <hr />
+                            <h3 class="ml-2">Suggérer des améliorations</h3>
+                            <p>Si un ou plusieurs services proposés ne sont pas à la hauteur de vos attentes,
+                                faites-nous en part également.</p>
+                            <hr />
+                            <h3 class="ml-2">Réponses & Délais de traitements</h3>
+                            <p>Nous n'aimons pas les mails et ne souhaitons pas polluer davantage vos boîtes mail.
+                                Ainsi, des notifications vous seront envoyées dès que leur développement seront
+                                achevées. En attendant, vous pourrez constater par vous-même l'intégration de vos
+                                contributions et suggestions sur le site.</p>
+                            <p>Quant aux délais de traitements : Les finaux approchent. Il est donc probable que les
+                                contributions ne soient intégrées qu'à partir de l'intersemestre.</p>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[0].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-docs></app-form-docs>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[1].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-study-suggest></app-form-study-suggest>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[2].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-community-suggest></app-form-community-suggest>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[3].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-news></app-form-news>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[4].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-surveys></app-form-surveys>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[5].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-quiz></app-form-quiz>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{ serviceFeatures[6].name }}">
+                    <ng-template matTabContent class="tab-content">
+                        <app-form-futilities-suggest></app-form-futilities-suggest>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>

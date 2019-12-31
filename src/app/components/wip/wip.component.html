@@ -1,0 +1,23 @@
+<div class="home-thumbnail">
+    <div class="background-thumbnail">
+        <video class="video-intro" playsinline autoplay muted loop oncanplay="this.play()"
+            onloadedmetadata="this.muted = true">
+            <source
+                src="https://firebasestorage.googleapis.com/v0/b/ut-ile.appspot.com/o/home%2Fhome_background.mp4?alt=media&token=9f2b098a-a51c-48fb-8d04-164d8f96c13e"
+                type="video/mp4">
+        </video>
+    </div>
+    <div class="content-thumbnail">
+        <h1 class="display-4 font-weight-bold thumbnail-title">En construction</h1>
+        <hr class="hr-light">
+        <p>
+            <strong>{{ featureStatus }}</strong>
+        </p>
+        <p class="mb-4">
+            <strong>{{ featureMessage }}</strong>
+        </p>
+        <a routerLink="{{ previousRoute }}" class="btn btn-outline-white">
+            <span>Retour</span>
+        </a>
+    </div>
+</div>

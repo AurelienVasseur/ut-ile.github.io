@@ -1,0 +1,10 @@
+<div class="login-card">
+    <mat-card>
+        <mat-card-content>
+            <div class="tab-content">
+                <app-form-login (passwordForgotten)="forgotPassword($event)" *ngIf="!passwordForgotten"></app-form-login>
+                <app-form-reset-password *ngIf="passwordForgotten"></app-form-reset-password>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

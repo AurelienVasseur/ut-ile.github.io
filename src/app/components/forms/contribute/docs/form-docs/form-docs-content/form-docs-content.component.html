@@ -1,0 +1,33 @@
+<!-- {{ diagnostic }} -->
+<div class="container" [hidden]="submitted">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Compléter la documentation</h2>
+        <p class="text-center w-responsive mx-auto mb-5">Sélectionnez une question présente dans la Doc'UT et modifiez le contenu de sa réponse.</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="docsContentFormGroup">
+            <mat-progress-spinner mode="indeterminate" diameter="40" *ngIf="!questions"></mat-progress-spinner>
+            <mat-form-field class="example-full-width" *ngIf="questions">
+                <input type="text" placeholder="Sélectionnez une question..." aria-label="Question" matInput  [formControl]="contentItem" [matAutocomplete]="auto" required>
+                <mat-error *ngIf="contentItem.invalid">{{ getContentItemErrorMessage() }}</mat-error>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                    {{ option.name }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        <div class="mat-input-field md-editor">
+            <div [className]="docsContentFormGroup.get('md_editor').invalid ? 'ng-invalid' : 'ng-valid'">
+                <mat-label for="md_editor">Modifiez le contenu *</mat-label>
+                <mat-error *ngIf="docsContentFormGroup.get('md_editor').invalid">{{ getMdEditorErrorMessage() }}</mat-error>
+                <md-editor name="md_editor" [height]="'400px'" formControlName="md_editor" [(ngModel)]="model.contentEdition" required maxlength="2000" [upload]="doUpload" [options]="mdEditorOptions"></md-editor>
+            </div>
+        </div>
+        <re-captcha (resolved)="resolved($event)" required formControlName="captcha" name="captcha" siteKey="6LeSAMMUAAAAAGm8Lw1Lpq199cAIwgq0ZFU8WNpK"></re-captcha>
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!docsContentFormGroup.valid || !contentItem.valid">Valider</button>
+    </form>
+</div>
+<div class="container text-center" [hidden]="!submitted">
+    <h2>Merci pour votre contribution !</h2>
+    <mat-icon class="icon-submit-success">done_all</mat-icon>
+    <button *ngIf="false" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

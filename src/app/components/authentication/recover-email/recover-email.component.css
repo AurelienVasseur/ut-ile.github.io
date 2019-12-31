@@ -1,0 +1,23 @@
+.recover-email-wrapper {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-status {
+    font-size: 5rem;
+    height: unset;
+    width: unset;
+}
+
+.icon-success {
+    color: green;
+}
+
+.icon-info {
+    color: #2196f3;
+}
+
+.icon-error {
+    color: red;
+}

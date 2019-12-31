@@ -1,0 +1,40 @@
+<footer class="page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5 class="text-uppercase">En quoi sommes-nous UTile ?</h5>
+                <p>Comme quoi, certaines personnes lisent les bas de pages. Et si vous trouvriez un joli nom pour les membres des UTs ? Franchement, UTrien, c'est pas ouf.</p>
+            </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Services</h5>
+                <ul class="list-unstyled">
+                    <div class="spinner" *ngIf="!serviceFeatures">
+                        <mat-progress-spinner mode="indeterminate" class="spinner" diameter="40"></mat-progress-spinner>
+                    </div>
+                    <li *ngFor="let service of serviceFeatures">
+                        <a routerLink="/{{ service.slug }}" mat-button><mat-icon>{{ service.icon }}</mat-icon>{{ service.name }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Liens Utiles</h5>
+                <ul class="list-unstyled">
+                    <div class="spinner" *ngIf="!usefulLinkFeatures">
+                            <mat-progress-spinner mode="indeterminate" class="spinner" diameter="40"></mat-progress-spinner>
+                    </div>
+                    <li *ngFor="let usefulLink of usefulLinkFeatures">
+                        <a routerLink="/{{ usefulLink.slug }}" mat-button><mat-icon>{{ usefulLink.icon }}</mat-icon>{{ usefulLink.name }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright text-center py-3">
+        <span class="copyleft">&copy; </span>
+        <span>2020 - </span>
+        <a routerLink="/">UTile</a>
+        <span> &#183; </span>
+        <a routerLink="legal-terms">Mentions légales</a>
+    </div>
+</footer>

@@ -1,0 +1,10 @@
+.spinner {
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+    display: flex;
+    justify-content: center;
+}
+
+.documentation-question {
+    margin-bottom: 30px;
+}

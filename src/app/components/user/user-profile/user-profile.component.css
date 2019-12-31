@@ -1,0 +1,28 @@
+.private-profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 50%;
+    padding: 0px;
+    margin: 10px;
+    /*height: 400px;*/
+}
+
+.tab-content {
+    margin: 10px;
+}
+
+.spinner {
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+    display: flex;
+    justify-content: center;
+}
+
+.public-profile {
+    display: flex;
+    justify-content: center;
+}

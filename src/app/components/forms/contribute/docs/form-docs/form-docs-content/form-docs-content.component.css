@@ -1,0 +1,14 @@
+.mat-input-field .ng-invalid mat-label {
+    color: rgb(225, 104, 92);
+}
+
+.mat-input-field .ng-valid mat-label {
+    color: #42A948;
+}
+
+.icon-submit-success {
+    font-size: 5rem;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    color: green;
+}

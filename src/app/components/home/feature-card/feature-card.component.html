@@ -1,0 +1,13 @@
+<div class="service-container">
+    <div class="row">
+        <div class="col-2 service-icon">
+            <a routerLink="/{{ feature.slug }}">
+                <mat-icon>{{ feature.icon }}</mat-icon>
+            </a>
+        </div>
+        <div class="col-10 mb-2 pl-3">
+            <a routerLink="/{{ feature.slug }}" class="feature-title font-bold mb-1">{{ feature.name | uppercase }}</a>
+            <p class="grey-text mt-2">{{ feature.description }}</p>
+        </div>
+    </div>
+</div>

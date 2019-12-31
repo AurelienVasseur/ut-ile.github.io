@@ -1,0 +1,25 @@
+<section class="verify-email-wrapper">
+    <mat-card>
+        <mat-card-content>
+            <div class="verify-email-header text-center">
+                <h1>Vérification de l'adresse email</h1>
+            </div>
+            <div class="success-verify-email" *ngIf="verified">
+                <div class="status-info-header text-center">
+                    <h3>Félicitations</h3>
+                    <mat-icon class="icon-status icon-success">done_all</mat-icon>  
+                </div>
+                <p>Votre adresse email a été validée avec succès ! Vous pouvez désormais accéder à davantage de contenus et contribuer.</p>
+                <button mat-button class="btn btn-success btn-md" (click)="redirectToHome()">Revenir à l'accueil</button>
+            </div>
+            <div class="error-verify-email" *ngIf="invalidActionCode">
+                <div class="status-info-header text-center">
+                    <h3>Erreur de validité</h3>
+                    <mat-icon class="icon-status icon-error">close</mat-icon>  
+                </div>
+                <p>Votre lien de vérification a expiré ou est incorrect. Veuillez réessayer ou renouveler la demande depuis les paramètres de votre profil.</p>
+                <button mat-button class="btn btn-primary btn-md" (click)="redirectToHome()">Revenir à l'accueil</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>

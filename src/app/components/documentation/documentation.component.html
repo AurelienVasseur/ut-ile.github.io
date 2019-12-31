@@ -1,0 +1,12 @@
+<section class="documentation" *ngIf="!category">
+    <div class="documentation-header text-center">
+        <h1>Documentation</h1>
+    </div>
+    <div class="documentation-categories-wrapper">
+        <app-category-card *ngFor="let category of categories" [category]="category" [featureSlug]="'docs'" [buttonName]="'En savoir plus'" [buttonIcon]="'play_arrow'"></app-category-card>
+    </div>
+</section>
+
+
+<app-sub-category *ngIf="subCategory && !question"></app-sub-category>
+<app-question *ngIf="question"></app-question>

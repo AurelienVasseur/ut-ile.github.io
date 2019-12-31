@@ -1,0 +1,14 @@
+<div class="user-card">
+    <mat-card class="example-card">
+        <mat-card-content>
+            <a class="avatar" routerLink="/users/{{ user.page_id }}">
+                <img src="{{ user.avatar }}" alt="{{ user.sur_name }}'s avatar">
+            </a>
+            <h2>{{ user.sur_name }}</h2>
+            <h3>{{ user.formation }}</h3>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-button class="btn btn-primary btn-md" routerLink="/users/{{ user.page_id }}">VOIR LE PROFIL</a>
+        </mat-card-actions>
+    </mat-card>
+</div>

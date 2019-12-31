@@ -1,0 +1,30 @@
+.survey-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 75%;
+    padding: 0px;
+    margin: 10px;
+    /*height: 400px;*/
+}
+
+.badges-thumbnail span {
+    margin-right: 5px;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.icon-submit-success {
+    font-size: 5rem;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    color: green;
+}

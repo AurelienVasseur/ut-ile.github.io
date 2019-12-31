@@ -1,0 +1,12 @@
+<mat-tab-group mat-align-tabs="center" mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="updateUrl($event)">
+    <mat-tab label="Créer un quizz">
+        <div class="tab-content">
+            <app-form-quiz-content></app-form-quiz-content>
+        </div>
+    </mat-tab>
+    <mat-tab label="Suggérer une amélioration">
+        <div class="tab-content">
+            <app-form-quiz-suggest></app-form-quiz-suggest>
+        </div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,16 @@
+<div class="spinner" *ngIf="!category">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<section class="documentation-categories" *ngIf="category">
+    <div class="documentation-category-header text-center">
+        <h1>{{ category.name }}</h1>
+    </div>
+    <div class="spinner" *ngIf="!subcategories">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <div class="documentation-subcategories-wrapper">
+        <app-category-card *ngFor="let subcategory of subcategories" [category]="subcategory"
+            [featureSlug]="'docs/'+ category.slug" [buttonName]="'En savoir plus'" [buttonIcon]="'open_in_new'">
+        </app-category-card>
+    </div>
+</section>

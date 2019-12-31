@@ -1,0 +1,44 @@
+<section class="recover-email-wrapper">
+    <mat-card>
+        <mat-card-content>
+            <div class="recover-email-header">
+                <h1>Récupération de l'ancienne adresse email</h1>
+            </div>
+            <div class="success-recover-email" *ngIf="emailRestored">
+                <div class="status-info-header text-center">
+                    <h3>Félicitations</h3>
+                    <mat-icon class="icon-status icon-success text-center">done</mat-icon>  
+                </div>
+                <p>Votre ancienne adresse email "<strong>{{ restoredEmail }}</strong>" a été récupérée avec succès !</p>
+            </div>
+            <div class="password-reset-sent" *ngIf="passwordResetEmailSent">
+                <div class="status-info-header text-center">
+                    <h3>Prochaine étape</h3>
+                    <mat-icon class="icon-status icon-info text-center">email</mat-icon> 
+                </div>
+                <p>Nous vous avons envoyé un mail à "<strong>{{ restoredEmail }}</strong>" dans le cas où votre compte aurait été compromis.</p>
+            </div>
+            <button mat-button *ngIf="emailRestored && passwordResetEmailSent" class="btn btn-success btn-md" (click)="redirectToHome()">Revenir à l'accueil</button>
+            <div *ngIf="wrongActionCode">
+                <div class="status-info-header text-center">
+                    <h3>Erreur de validité</h3>
+                    <mat-icon class="icon-status icon-error text-center">close</mat-icon>    
+                </div>
+                <p>Votre lien de récupération a expiré ou est incorrect. Veuillez réitérer votre demande ou contactez-nous.</p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>
+
+<div class="recover-email">
+    <div class="success-recover-email" *ngIf="emailRestored">
+        <p>"{{ restoredEmail }}" has successfully been restored !</p>
+    </div>
+    <div class="password-reset-sent" *ngIf="passwordResetEmailSent">
+        <p>An email has been sent to "{{ restoredEmail }}" to reset the password in case the account was compromised.
+        </p>
+    </div>
+    <div *ngIf="wrongActionCode">
+        <p>Oops, it seems that your recover link is incorrect or has expired. Please try again.</p>
+    </div>
+</div>

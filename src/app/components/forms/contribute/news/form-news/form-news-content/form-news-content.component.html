@@ -1,0 +1,39 @@
+<!-- {{ diagnostic }} -->
+<div class="container" [hidden]="submitted">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Ajouter un article</h2>
+        <p class="text-center w-responsive mx-auto mb-5">Vous faites parti des UTs et souhaitez communiquer une actualité d'ordre universitaire, associative ou dans le cadre d'une de vos UVs (production d'un magazine, film, etc.) ? Alors vous êtes au bon endroit !</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="newsContentFormGroup">
+        <mat-form-field>
+            <input #title type="text" placeholder="Titre" aria-label="Titre" matInput id="firstName" formControlName="title" name="title" required maxlength="64">
+            <mat-error *ngIf="newsContentFormGroup.get('title').invalid">{{ getTitleErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ title.value?.length || 0 }}/64</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Catégorie" formControlName="category" required>
+                <mat-option *ngFor="let category of suggestionsCategories" [value]="category">{{ category }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="newsContentFormGroup.get('category').invalid">{{ getCategoryErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea #description placeholder="Description" aria-label="Description" matInput id="description" formControlName="description" name="description" required maxlength="120"></textarea>
+            <mat-error *ngIf="newsContentFormGroup.get('description').invalid">{{ getDescriptionErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ description.value?.length || 0 }}/120</mat-hint>
+        </mat-form-field>
+        <div class="mat-input-field md-editor">
+            <div [className]="newsContentFormGroup.get('md_editor').invalid ? 'ng-invalid' : 'ng-valid'">
+                <mat-label for="md_editor">Rédigez votre article *</mat-label>
+                <mat-error *ngIf="newsContentFormGroup.get('md_editor').invalid">{{ getMdEditorErrorMessage() }}</mat-error>
+                <md-editor name="md_editor" [height]="'400px'" formControlName="md_editor" [(ngModel)]="model.content" required maxlength="2000" [upload]="doUpload" [options]="mdEditorOptions"></md-editor>
+            </div>
+        </div>
+        <re-captcha (resolved)="resolved($event)" required name="captcha" formControlName="captcha" siteKey="6LeSAMMUAAAAAGm8Lw1Lpq199cAIwgq0ZFU8WNpK"></re-captcha>
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!newsContentFormGroup.valid">Valider</button>
+    </form>
+</div>
+<div class="container text-center" [hidden]="!submitted">
+    <h2>Merci pour votre contribution !</h2>
+    <mat-icon class="icon-submit-success">done_all</mat-icon>
+    <button *ngIf="false" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

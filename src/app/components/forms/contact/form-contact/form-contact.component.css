@@ -1,0 +1,13 @@
+.icon-submit-success {
+    font-size: 5rem;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    color: green;
+}
+
+.spinner {
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+    display: flex;
+    justify-content: center;
+}

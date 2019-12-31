@@ -1,0 +1,12 @@
+<mat-tab-group mat-align-tabs="center" mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="updateUrl($event)">
+    <mat-tab label="Éditer la doc'">
+        <div class="tab-content">
+            <app-form-docs-content></app-form-docs-content>
+        </div>
+    </mat-tab>
+    <mat-tab label="Suggérer une amélioration">
+        <div class="tab-content">
+            <app-form-docs-suggest></app-form-docs-suggest>
+        </div>
+    </mat-tab>
+</mat-tab-group>

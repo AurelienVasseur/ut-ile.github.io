@@ -1,0 +1,45 @@
+<div class="container" [hidden]="submitted">
+    <div class="content-header">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">S'inscrire</h2>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerFormGroup">
+        <mat-form-field>
+            <input #surname type="text" placeholder="Surname" aria-label="Surname" matInput id="sur_name" formControlName="sur_name" name="sur_name" required maxlength="64">
+            <mat-error *ngIf="registerFormGroup.get('sur_name').invalid">{{ getSurNameErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ surname.value?.length || 0 }}/64</mat-hint>
+        </mat-form-field>
+        <mat-form-field hintLabel="Utilisez votre email UT afin d'accéder aux contenus réservés">
+            <input type="email" placeholder="Email" aria-label="Email" matInput id="email" formControlName="email" name="email" required>
+            <mat-error *ngIf="registerFormGroup.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Minimum 8 caractères">
+            <input #password matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Mot de passe" aria-label="Mot de passe" id="password" formControlName="password" name="password" required maxlength="128">
+            <a mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
+            <mat-hint align="end">{{ password.value?.length || 0 }}/128</mat-hint>
+            <mat-error *ngIf="registerFormGroup.get('password').invalid">{{ getPasswordErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Facultatif">
+            <input #firstname type="text" placeholder="Prénom" aria-label="Prénom" matInput id="first_name" formControlName="first_name" name="first_name" maxlength="64">
+            <mat-error *ngIf="registerFormGroup.get('first_name').invalid">{{ getFirstNameErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ firstname.value?.length || 0 }}/64</mat-hint>
+        </mat-form-field>
+        <mat-form-field hintLabel="Facultatif">
+            <input #lastname type="text" placeholder="Nom" aria-label="Nom" matInput id="last_name" formControlName="last_name" name="last_name" maxlength="64">
+            <mat-error *ngIf="registerFormGroup.get('last_name').invalid">{{ getLastNameErrorMessage() }}</mat-error>
+            <mat-hint align="end">{{ lastname.value?.length || 0 }}/64</mat-hint>
+        </mat-form-field>
+        <re-captcha (resolved)="resolved($event)" required formControlName="captcha" name="captcha" siteKey="6LeSAMMUAAAAAGm8Lw1Lpq199cAIwgq0ZFU8WNpK"></re-captcha>
+        <p>En vous inscrivant, vous acceptez nos <a routerLink="/legal-terms">Conditions Générales d'Utilisations</a>.</p>
+        <button type="submit" class="btn btn-success btn-md" [disabled]="!registerFormGroup.valid">Valider</button>
+    </form>
+</div>
+<div class="container" [hidden]="!submitted">
+    <h2>Confirmez votre inscription</h2>
+    <mat-icon>email</mat-icon>
+    <p>Un mail de confirmation vous a été envoyé à "<strong>{{ model.email }}</strong>" par "noreply@ut-ile.firebaseapp.com".</p>
+    <p>Cliquez sur le lien de validation présent dans ce mail pour valider votre inscription !</p>
+    <p>Vous n'avez pas reçu de mail ? Vérifiez vos spams ou :</p>
+    <button mat-button class="btn btn-primary btn-md mb-2" (click)="sendEmailVerification()" [disabled]="emailVerificationReSent">Renvoyer un mail</button>
+</div>

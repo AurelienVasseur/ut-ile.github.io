@@ -1,0 +1,13 @@
+<mat-card class="doc-question-card">
+    <mat-card-header>
+        <mat-card-title>
+            <a class="question" routerLink="{{ currentRoute }}/{{ question.slug }}">
+                <span class="title">{{ question.name }}</span>
+                <mat-icon>open_in_new</mat-icon>
+            </a>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <span class="badge badge-pill badge-info" *ngFor="let badge of question.badges">{{ $any(badge).name }}</span>
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

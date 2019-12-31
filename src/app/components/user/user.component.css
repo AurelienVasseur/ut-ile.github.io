@@ -1,0 +1,10 @@
+.users-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loading-spinner {
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+}

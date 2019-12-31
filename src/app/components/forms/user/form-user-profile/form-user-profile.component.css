@@ -1,0 +1,66 @@
+.action-buttons button {
+    width: 50%;
+}
+
+.action-buttons a {
+    width: 50%;
+}
+
+.avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.avatar-wrapper {
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    cursor: default;
+}
+
+.avatar-compress {
+    cursor: pointer;
+}
+
+.avatar-compress:hover .hover-text {
+    visibility: visible;
+}
+
+.avatar-compress:hover {
+    background-color: black;
+    transition-duration: 1s;
+}
+
+.avatar-compress:hover .avatar {
+    opacity: 0.8;
+}
+
+.hover-text {
+    visibility: hidden;
+    color: white;
+    font-size: 8px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px black;
+    text-transform: uppercase;
+
+    position: absolute;
+    top: 55px;
+    left: calc(50% - 38px);
+}
+
+.btn-modify {
+    color: white;
+}
+
+.btn-modify:hover {
+    color: white;
+}

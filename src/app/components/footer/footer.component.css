@@ -1,0 +1,25 @@
+.copyleft {
+    display:inline-block;
+    transform: rotate(180deg);
+    padding-top: 1px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+}
+
+@media(min-width: 766px){
+    .spinner {
+        display: flex;
+        justify-content: left;
+    }
+}
+
+mat-icon {
+    margin-right: 5px;
+}

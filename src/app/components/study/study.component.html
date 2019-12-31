@@ -1,0 +1,8 @@
+<section class="study">
+    <div class="study-header text-center">
+        <h1>UTdiant</h1>
+    </div>
+    <div class="study-categories-wrapper">
+        <app-category-card *ngFor="let category of categories" [category]="category" [featureSlug]="'study'" [buttonName]="'En savoir plus'" [buttonIcon]="'play_arrow'"></app-category-card>
+    </div>
+</section>
