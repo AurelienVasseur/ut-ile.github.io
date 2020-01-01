@@ -1,0 +1,61 @@
+{
+    "docs": [
+        "Organisation des pages",
+        "Recherche de contenu",
+        "Accessibilité des informations",
+        "Offline (PDF, app. mobile)",
+        "Autre"
+    ],
+    "community": [
+        "Plateforme",
+        "Modération",
+        "Intégration web",
+        "Bots",
+        "Autre"
+    ],
+    "news": [
+        "Organisation des pages",
+        "Recherche de contenu",
+        "Autre"
+    ],
+    "news_content": [
+        "Actualité universitaire",
+        "Actualité associative",
+        "Autre"
+    ],
+    "study": [
+        "Sched'UT",
+        "Agenda",
+        "Pellic'UT",
+        "Logement",
+        "Stages & Emplois",
+        "Gestion des UVs",
+        "Cours & Annales",
+        "Aide aux devoirs",
+        "Harmonie",
+        "Glob'UT",
+        "Associ'UT",
+        "Autre"
+    ],
+    "surveys": [
+        "Nouvelle(s) fonctionnalité(s)",
+        "Statistiques",
+        "Portabilité",
+        "Accessibilité numérique",
+        "Autre"
+    ], 
+    "quizz": [
+        "Nouvelle(s) fonctionnalité(s)",
+        "Portabilité",
+        "Accessibilité numérique",
+        "Autre"
+    ],
+    "futilities": [
+        "Qw'UT",
+        "Mem'UT",
+        "Nouvelle F'UTitilité",
+        "Améliorer une F'UTilité existente",
+        "Design",
+        "Autre"
+    ]
+}

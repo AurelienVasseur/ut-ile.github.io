@@ -1,0 +1,89 @@
+{
+    "title": "Quiz",
+    "completedHtml": "<h4>You have answered correctly <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>",
+    "pages": [
+        {
+            "name": "Page d'accueil",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question1",
+                    "html": "<p>Bienvenue dans l&#39;&eacute;diteur de Quiz !</p>\n\n<p>Cette page appara&icirc;tra avant que le sujet ne commence le quiz. Vous pouvez modifier ce contenu via le bouton &quot;Edit&quot;. Indiquez, par exemple, les modalit&eacute;s de votre quiz (sujet, temps imparti, etc.).</p>\n\n<p>Vous pouvez modifier le temps imparti (par page et pour la totalit&eacute; du quiz) dans les param&egrave;tres g&eacute;n&eacute;raux.</p>\n\n<p>Vous pouvez ins&eacute;rer des questions via la barre d&#39;outil de gauche. N&#39;oubliez pas de d&eacute;finir la r&eacute;ponse correcte pour chacune de vos questions via le menu Avanc&eacute;.</p>\n\n<p>Voici un exemple d&#39;informations &agrave; transmettre avant de d&eacute;buter le quiz :</p>\n\n<p>&nbsp;</p>\n\n<p>Vous &ecirc;tes sur le point de commencer un quiz de math&eacute;matiques.</p>\n\n<p>Vous avez 10 secondes pour chaque &eacute;tape/page et 25 secondes pour l&#39;ensemble de quiz. Ce quiz est compos&eacute; de X questions et de Y &eacute;tapes/pages.</p>\n\n<p>Appuyez sur le bouton &quot;Commencer&quot; d&egrave;s que vous &ecirc;tes pr&ecirc;t.</p>\n"
+                }
+            ]
+        },
+        {
+            "name": "Page2 - Exemple1",
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "Quelle est la meilleure UT ?",
+                    "correctAnswer": "IUT Amiens",
+                    "isRequired": true,
+                    "choices": [
+                        "UTC",
+                        "UTT",
+                        "UTBM",
+                        "UTSEUS",
+                        "IUT Amiens"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Page3 - Exemple",
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "En quelle année la Base Astrée est-elle devenue un meme ?",
+                    "correctAnswer": "2017",
+                    "isRequired": true,
+                    "choices": [
+                        "2015",
+                        "2016",
+                        "2017",
+                        "2018",
+                        "2019"
+                    ]
+                }
+            ],
+            "maxTimeToFinish": 15
+        },
+        {
+            "name": "Page4 - Exemple",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "Qui est le créateur d'UTile ?",
+                    "correctAnswer": [
+                        "Un inconnu du bataillon",
+                        "Le SAE, pour l'attestation de responsabilité civile",
+                        "Une invitation a une soutenance de thèse",
+                        "Un vieux con",
+                        "Le 1er sur Mario Kart qui se prend une carapace bleue, un éclair, une carapace rouge et finit dernier",
+                        "Un chasuble"
+                    ],
+                    "isRequired": true,
+                    "choices": [
+                        "Un inconnu du bataillon",
+                        "Un Insalien",
+                        "Un chasuble",
+                        "Le SAE, pour l'attestation de responsabilité civile",
+                        "Une invitation a une soutenance de thèse",
+                        "Un vieux con",
+                        {
+                            "value": "Le 1er sur Mario Kart qui se prend une carapace bleue, un éclair, une carapace rouge et finit dernier",
+                            "text": "Le 1er sur Mario Kart qui se prend une carapace bleue, un éclair, une carapace rouge et qui finit dernier"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "showProgressBar": "bottom",
+    "startSurveyText": "Start Quiz",
+    "firstPageIsStarted": true,
+    "maxTimeToFinish": 25,
+    "maxTimeToFinishPage": 10,
+    "showTimerPanel": "top"
+}
