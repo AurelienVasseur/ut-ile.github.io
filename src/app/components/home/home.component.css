@@ -86,3 +86,9 @@ video {
 .spinner {
     margin: 50px;
 }
+
+.background-thumbnail-image {
+    min-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
