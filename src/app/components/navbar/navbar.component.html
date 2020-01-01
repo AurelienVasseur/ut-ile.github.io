@@ -38,7 +38,7 @@
       </div>
       <div class="profile-dropdown" *ngIf="fireUser && user">
         <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="Example icon-button with a menu">
-          <img class="avatar" src="{{ user.avatar }}" alt="{{ user.sur_name }}'s avatar">
+          <img class="avatar" src="{{ user.avatar }}">
           <span class="user-surname">{{ user.sur_name }}</span>
         </button>
         <mat-menu #profileMenu="matMenu">
