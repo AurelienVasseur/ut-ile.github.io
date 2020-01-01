@@ -16,7 +16,7 @@ import { User } from '../../../../models/user/user';
 
 import { map, take } from 'rxjs/operators';
 
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
