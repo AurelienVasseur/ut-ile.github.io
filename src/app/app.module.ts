@@ -256,9 +256,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { 
-        enableTracing: true, // <-- debugging purposes only
+        enableTracing: false, // <-- debugging purposes only
         anchorScrolling: 'enabled',
-        scrollPositionRestoration: 'disabled'
+        scrollPositionRestoration: 'enabled'
       } 
     ),
     HttpClientModule,
@@ -268,10 +268,6 @@ const appRoutes: Routes = [
         provide: MarkedOptions,
       },
     }),
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClientModule,
