@@ -4,7 +4,7 @@
     </div>
     <form (ngSubmit)="onSubmit()" [formGroup]="registerFormGroup">
         <mat-form-field>
-            <input #surname type="text" placeholder="Surname" aria-label="Surname" matInput id="sur_name" formControlName="sur_name" name="sur_name" required maxlength="64">
+            <input #surname type="text" placeholder="Pseudonyme" aria-label="Pseudonyme" matInput id="sur_name" formControlName="sur_name" name="sur_name" required maxlength="64">
             <mat-error *ngIf="registerFormGroup.get('sur_name').invalid">{{ getSurNameErrorMessage() }}</mat-error>
             <mat-hint align="end">{{ surname.value?.length || 0 }}/64</mat-hint>
         </mat-form-field>
